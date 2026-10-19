@@ -1,9 +1,12 @@
 import { useAuth } from '../auth/useAuth'
 import PageHeader from '../components/layout/PageHeader'
-import EmptyState from '../components/ui/EmptyState'
+import ProfileForm from '../components/settings/ProfileForm'
+import { useProfile } from '../hooks/useProfile'
+import { emptyProfile } from '../types/models'
 
 export default function Settings() {
   const { user, logout } = useAuth()
+  const { profile, loading, error } = useProfile()
 
   return (
     <>
@@ -13,7 +16,13 @@ export default function Settings() {
           <h2 id="profile-title" className="mb-2 text-base font-bold">
             療程資料
           </h2>
-          <EmptyState title="療程資料與備份" hint="之後可以在這裡填寫療程基本資料，並匯出備份。" />
+          {loading && <p className="text-sm text-steel">載入中…</p>}
+          {error && (
+            <p role="alert" className="rounded-xl bg-amber/10 px-4 py-3 text-sm text-amber">
+              {error}
+            </p>
+          )}
+          {!loading && !error && <ProfileForm initial={profile ?? emptyProfile} />}
         </section>
 
         <section aria-labelledby="account-title">

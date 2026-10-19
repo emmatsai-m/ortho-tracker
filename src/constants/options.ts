@@ -14,3 +14,7 @@ export const VISIT_ITEMS = [
 export const SYMPTOMS = ['痠痛', '牙齦腫', '口破', '鋼線戳嘴', '牙齒鬆動感', '口臭'] as const
 
 export const SUPPLY_CATEGORIES = ['牙間刷', '牙線', '沖牙機', '牙刷', '漱口水', '護蠟', '收納盒', '其他'] as const
+
+export const TREATMENT_TYPES = ['固定式（金屬）', '固定式（陶瓷）', '固定式（自鎖）', '隱形牙套', '其他'] as const
+
+export const PAYMENT_METHODS = ['一次付清', '分期', '每次回診付'] as const

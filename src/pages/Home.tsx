@@ -1,7 +1,10 @@
 import PageHeader from '../components/layout/PageHeader'
+import ProgressCard from '../components/home/ProgressCard'
 import EmptyState from '../components/ui/EmptyState'
+import { useProfile } from '../hooks/useProfile'
 
 export default function Home() {
+  const { profile } = useProfile()
   return (
     <>
       <PageHeader title="矯正紀錄" showSettings />
@@ -10,7 +13,7 @@ export default function Home() {
           <h2 id="progress-title" className="mb-2 text-base font-bold">
             療程進度
           </h2>
-          <EmptyState title="還沒有療程資料" hint="到設定填入開始日與預計結束日，這裡就會顯示進度。" />
+          <ProgressCard profile={profile} />
         </section>
 
         <section aria-labelledby="visit-title">
