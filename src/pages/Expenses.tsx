@@ -5,12 +5,15 @@ import PageHeader from '../components/layout/PageHeader'
 import EmptyState from '../components/ui/EmptyState'
 import { usePayments } from '../hooks/usePayments'
 import { useProfile } from '../hooks/useProfile'
+import { useSupplies } from '../hooks/useSupplies'
 import { summarizeCost } from '../utils/cost'
 
 export default function Expenses() {
   const { payments, loading, error } = usePayments()
   const { profile } = useProfile()
-  const summary = summarizeCost(payments, profile?.totalPrice ?? null)
+  const { supplies } = useSupplies()
+  const suppliesTotal = supplies.reduce((sum, s) => sum + s.totalPrice, 0)
+  const summary = summarizeCost(payments, profile?.totalPrice ?? null, suppliesTotal)
 
   return (
     <>

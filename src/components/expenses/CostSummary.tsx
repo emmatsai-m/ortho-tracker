@@ -76,9 +76,12 @@ export default function CostSummary({ summary, totalPrice, compact }: Props) {
         <div className="rounded-2xl border border-line bg-card p-4">
           <Stat label="額外牙科費用" value={formatTWD(summary.extra)} />
         </div>
-        <div className="rounded-2xl border border-line bg-card p-4">
-          <Stat label="總花費" value={formatTWD(summary.total)} />
-        </div>
+        <Link to="/supplies" className="rounded-2xl border border-line bg-card p-4 active:bg-tide-soft">
+          <Stat label="用品花費" value={formatTWD(summary.supplies)} />
+        </Link>
+      </div>
+      <div className="rounded-2xl border border-line bg-card p-4">
+        <Stat label="總花費（已付療程款＋額外牙科費用＋用品）" value={formatTWD(summary.total)} />
       </div>
     </div>
   )

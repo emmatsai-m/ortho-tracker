@@ -28,3 +28,7 @@ export const EXPENSE_METHODS = ['現金', '信用卡', '轉帳', '行動支付',
 
 /** 金額快捷鈕 */
 export const QUICK_AMOUNTS = [500, 1000, 2000, 5000, 10000, 20000] as const
+
+export const SUPPLY_STATUSES = ['未開封', '使用中', '已用完'] as const
+
+export const REPURCHASE_OPTIONS = ['會回購', '不回購'] as const

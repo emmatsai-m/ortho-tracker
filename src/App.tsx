@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import Logs from './pages/Logs'
 import Settings from './pages/Settings'
 import Supplies from './pages/Supplies'
+import SupplyEdit from './pages/SupplyEdit'
 
 // 使用 HashRouter：網址形如 /#/logs，GitHub Pages 重新整理才不會 404。
 export default function App() {
@@ -25,6 +26,8 @@ export default function App() {
               <Route path="expenses/new" element={<ExpenseEdit />} />
               <Route path="expenses/:id" element={<ExpenseEdit />} />
               <Route path="supplies" element={<Supplies />} />
+              <Route path="supplies/new" element={<SupplyEdit />} />
+              <Route path="supplies/:id" element={<SupplyEdit />} />
               <Route path="settings" element={<Settings />} />
               <Route path="*" element={<Home />} />
             </Route>

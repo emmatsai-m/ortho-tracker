@@ -45,3 +45,28 @@ export type Payment = {
 }
 
 export type PaymentInput = Omit<Payment, 'id'>
+
+/** 用品：users/{uid}/supplies/{id} */
+export type Supply = {
+  id: string
+  /** 名稱；沒填時使用分類名稱 */
+  name: string
+  category: string
+  brand: string
+  spec: string
+  quantity: number
+  /** 單價（新臺幣整數） */
+  unitPrice: number
+  /** 總價 = 數量 × 單價 */
+  totalPrice: number
+  /** 購買日期，YYYY-MM-DD */
+  purchaseDate: string
+  store: string
+  /** 未開封、使用中、已用完 */
+  status: string
+  /** 會回購、不回購；還沒決定為空字串 */
+  repurchase: string
+  note: string
+}
+
+export type SupplyInput = Omit<Supply, 'id'>

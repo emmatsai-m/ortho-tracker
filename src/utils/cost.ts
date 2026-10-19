@@ -5,7 +5,9 @@ export type CostSummary = {
   paidTreatment: number
   /** 額外牙科費用（已付） */
   extra: number
-  /** 總花費 = 已付療程款 + 額外牙科費用（用品花費於用品功能完成後加入） */
+  /** 用品花費（所有採購紀錄的總價加總） */
+  supplies: number
+  /** 總花費 = 已付療程款 + 額外牙科費用 + 用品花費 */
   total: number
   /** 待付 = 療程總價 − 已付療程款；尚未設定總價時為 null */
   remaining: number | null
@@ -31,6 +33,7 @@ export function summarizeCost(payments: Payment[], totalPrice: number | null, su
   return {
     paidTreatment,
     extra,
+    supplies: suppliesTotal,
     total: paidTreatment + extra + suppliesTotal,
     remaining: totalPrice === null ? null : Math.max(totalPrice - paidTreatment, 0),
     scheduledPending,

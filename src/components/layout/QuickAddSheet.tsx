@@ -7,7 +7,7 @@ const actions = [
   { label: '記回診', to: '/logs' },
   { label: '記感受', to: '/logs' },
   { label: '記花費', to: '/expenses/new' },
-  { label: '記用品', to: '/supplies' },
+  { label: '記用品', to: '/supplies/new' },
 ]
 
 export default function QuickAddSheet() {

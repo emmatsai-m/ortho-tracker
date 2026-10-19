@@ -4,13 +4,16 @@ import ProgressCard from '../components/home/ProgressCard'
 import EmptyState from '../components/ui/EmptyState'
 import { usePayments } from '../hooks/usePayments'
 import { useProfile } from '../hooks/useProfile'
+import { useSupplies } from '../hooks/useSupplies'
 import { summarizeCost } from '../utils/cost'
 
 export default function Home() {
   const { profile } = useProfile()
   const { payments } = usePayments()
+  const { supplies } = useSupplies()
+  const suppliesTotal = supplies.reduce((sum, s) => sum + s.totalPrice, 0)
   const totalPrice = profile?.totalPrice ?? null
-  const hasCost = payments.length > 0 || totalPrice !== null
+  const hasCost = payments.length > 0 || supplies.length > 0 || totalPrice !== null
   return (
     <>
       <PageHeader title="矯正紀錄" showSettings />
@@ -34,7 +37,7 @@ export default function Home() {
             費用摘要
           </h2>
           {hasCost ? (
-            <CostSummary compact summary={summarizeCost(payments, totalPrice)} totalPrice={totalPrice} />
+            <CostSummary compact summary={summarizeCost(payments, totalPrice, suppliesTotal)} totalPrice={totalPrice} />
           ) : (
             <EmptyState title="還沒有費用紀錄" hint="新增款項後，會顯示已付、待付與總花費。" />
           )}
