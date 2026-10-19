@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* 設計代幣：之後要換顏色只改這裡 */
+@theme {
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --color-enamel: #f4f8f8;
+  --color-card: #ffffff;
+  --color-ink: #17262b;
+  --color-steel: #5e7078;
+  --color-line: #d9e3e4;
+  --color-tide: #1e7a78;
+  --color-tide-deep: #155a59;
+  --color-tide-soft: #dceeec;
+  --color-amber: #b0741a;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-enamel);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-tide);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
