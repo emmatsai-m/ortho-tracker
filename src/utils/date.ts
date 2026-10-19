@@ -22,3 +22,10 @@ export function formatDate(s: string): string {
   if (!d) return ''
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`
 }
+
+/** Date 轉成 YYYY-MM-DD（本地時間） */
+export function toDateString(d: Date): string {
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  return `${d.getFullYear()}-${mm}-${dd}`
+}

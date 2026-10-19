@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import AuthProvider from './auth/AuthProvider'
 import AppShell from './components/layout/AppShell'
 import AuthGuard from './components/layout/AuthGuard'
+import ExpenseEdit from './pages/ExpenseEdit'
 import Expenses from './pages/Expenses'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -21,6 +22,8 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path="logs" element={<Logs />} />
               <Route path="expenses" element={<Expenses />} />
+              <Route path="expenses/new" element={<ExpenseEdit />} />
+              <Route path="expenses/:id" element={<ExpenseEdit />} />
               <Route path="supplies" element={<Supplies />} />
               <Route path="settings" element={<Settings />} />
               <Route path="*" element={<Home />} />

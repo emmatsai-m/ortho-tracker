@@ -25,3 +25,23 @@ export const emptyProfile: Profile = {
   totalPrice: null,
   paymentMethod: '',
 }
+
+/** 款項：users/{uid}/payments/{id} */
+export type Payment = {
+  id: string
+  /** 療程款 或 額外牙科費用 */
+  kind: string
+  /** 新臺幣整數 */
+  amount: number
+  /** 付款日（待付時為預計日期），YYYY-MM-DD */
+  date: string
+  /** 已付 或 待付 */
+  status: string
+  /** 預計付款日（待付時使用），YYYY-MM-DD；沒有為空字串 */
+  dueDate: string
+  /** 現金、信用卡等；沒選為空字串 */
+  method: string
+  note: string
+}
+
+export type PaymentInput = Omit<Payment, 'id'>

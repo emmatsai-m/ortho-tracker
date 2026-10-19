@@ -18,3 +18,13 @@ export const SUPPLY_CATEGORIES = ['牙間刷', '牙線', '沖牙機', '牙刷', 
 export const TREATMENT_TYPES = ['固定式（金屬）', '固定式（陶瓷）', '固定式（自鎖）', '隱形牙套', '其他'] as const
 
 export const PAYMENT_METHODS = ['一次付清', '分期', '每次回診付'] as const
+
+export const PAYMENT_KINDS = ['療程款', '額外牙科費用'] as const
+
+export const PAYMENT_STATUSES = ['已付', '待付'] as const
+
+/** 這筆款項是怎麼付的（和療程「付款方式」不同） */
+export const EXPENSE_METHODS = ['現金', '信用卡', '轉帳', '行動支付', '其他'] as const
+
+/** 金額快捷鈕 */
+export const QUICK_AMOUNTS = [500, 1000, 2000, 5000, 10000, 20000] as const
