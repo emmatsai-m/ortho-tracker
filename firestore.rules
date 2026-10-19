@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 只有「已登入、且是路徑中的本人、且是這個帳號」才能讀寫
+    // 請把下面的 PASTE_YOUR_UID_HERE 換成你的使用者 UID（保留單引號）
+    function isOwner(uid) {
+      return request.auth != null
+        && request.auth.uid == uid
+        && request.auth.uid == 'PASTE_YOUR_UID_HERE';
+    }
+
+    match /users/{uid}/{document=**} {
+      allow read, write: if isOwner(uid);
+    }
+
+    // 其他所有路徑一律拒絕
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
