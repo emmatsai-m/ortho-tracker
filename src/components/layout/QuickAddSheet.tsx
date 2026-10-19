@@ -4,8 +4,8 @@ import { CloseIcon, PlusIcon } from '../ui/Icons'
 
 // 快速新增的入口。表單頁面會在後續階段完成，這裡先導向對應的分頁。
 const actions = [
-  { label: '記回診', to: '/logs' },
-  { label: '記感受', to: '/logs' },
+  { label: '記回診', to: `/logs/new?type=${encodeURIComponent('回診')}` },
+  { label: '記感受', to: `/logs/new?type=${encodeURIComponent('身體感受')}` },
   { label: '記花費', to: '/expenses/new' },
   { label: '記用品', to: '/supplies/new' },
 ]

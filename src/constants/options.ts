@@ -32,3 +32,10 @@ export const QUICK_AMOUNTS = [500, 1000, 2000, 5000, 10000, 20000] as const
 export const SUPPLY_STATUSES = ['未開封', '使用中', '已用完'] as const
 
 export const REPURCHASE_OPTIONS = ['會回購', '不回購'] as const
+
+export const LOG_TYPES = ['回診', '身體感受', '特殊事件'] as const
+
+export const EVENT_TAGS = ['托槽脫落', '鋼線戳嘴', '牙套遺失', '牙套破損', '緊急就診', '換新牙套', '其他'] as const
+
+/** 疼痛程度 0～5 的簡短說明 */
+export const PAIN_LABELS = ['無痛', '輕微', '有感', '明顯', '很痛', '難忍'] as const

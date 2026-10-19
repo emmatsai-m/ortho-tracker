@@ -6,6 +6,7 @@ import ExpenseEdit from './pages/ExpenseEdit'
 import Expenses from './pages/Expenses'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import LogEdit from './pages/LogEdit'
 import Logs from './pages/Logs'
 import Settings from './pages/Settings'
 import Supplies from './pages/Supplies'
@@ -22,6 +23,8 @@ export default function App() {
             <Route element={<AppShell />}>
               <Route index element={<Home />} />
               <Route path="logs" element={<Logs />} />
+              <Route path="logs/new" element={<LogEdit />} />
+              <Route path="logs/:id" element={<LogEdit />} />
               <Route path="expenses" element={<Expenses />} />
               <Route path="expenses/new" element={<ExpenseEdit />} />
               <Route path="expenses/:id" element={<ExpenseEdit />} />

@@ -1,16 +1,20 @@
 import PageHeader from '../components/layout/PageHeader'
 import CostSummary from '../components/expenses/CostSummary'
+import NextVisitCard from '../components/home/NextVisitCard'
 import ProgressCard from '../components/home/ProgressCard'
 import EmptyState from '../components/ui/EmptyState'
+import { useLogs } from '../hooks/useLogs'
 import { usePayments } from '../hooks/usePayments'
 import { useProfile } from '../hooks/useProfile'
 import { useSupplies } from '../hooks/useSupplies'
 import { summarizeCost } from '../utils/cost'
+import { findNextVisit } from '../utils/logs'
 
 export default function Home() {
   const { profile } = useProfile()
   const { payments } = usePayments()
   const { supplies } = useSupplies()
+  const { logs } = useLogs()
   const suppliesTotal = supplies.reduce((sum, s) => sum + s.totalPrice, 0)
   const totalPrice = profile?.totalPrice ?? null
   const hasCost = payments.length > 0 || supplies.length > 0 || totalPrice !== null
@@ -29,7 +33,7 @@ export default function Home() {
           <h2 id="visit-title" className="mb-2 text-base font-bold">
             下次回診
           </h2>
-          <EmptyState title="還沒有回診預約" hint="記錄回診時填入下次日期，這裡會顯示倒數天數。" />
+          <NextVisitCard log={findNextVisit(logs)} />
         </section>
 
         <section aria-labelledby="cost-title">

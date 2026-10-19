@@ -70,3 +70,25 @@ export type Supply = {
 }
 
 export type SupplyInput = Omit<Supply, 'id'>
+
+/** 療程日誌：users/{uid}/logs/{id} */
+export type Log = {
+  id: string
+  /** 回診、身體感受、特殊事件 */
+  type: string
+  /** YYYY-MM-DD */
+  date: string
+  /** 施作項目（回診用） */
+  items: string[]
+  /** 疼痛程度 0～5（身體感受用）；沒有為 null */
+  painLevel: number | null
+  /** 症狀（身體感受用） */
+  symptoms: string[]
+  /** 事件標籤（特殊事件用） */
+  eventTags: string[]
+  /** 下次回診日期（回診用），YYYY-MM-DD；沒有為空字串 */
+  nextVisitDate: string
+  note: string
+}
+
+export type LogInput = Omit<Log, 'id'>
