@@ -1,5 +1,6 @@
 import { useAuth } from '../auth/useAuth'
 import PageHeader from '../components/layout/PageHeader'
+import ExportPanel from '../components/settings/ExportPanel'
 import ProfileForm from '../components/settings/ProfileForm'
 import { useProfile } from '../hooks/useProfile'
 import { emptyProfile } from '../types/models'
@@ -23,6 +24,13 @@ export default function Settings() {
             </p>
           )}
           {!loading && !error && <ProfileForm initial={profile ?? emptyProfile} />}
+        </section>
+
+        <section aria-labelledby="backup-title">
+          <h2 id="backup-title" className="mb-2 text-base font-bold">
+            資料備份
+          </h2>
+          <ExportPanel />
         </section>
 
         <section aria-labelledby="account-title">
