@@ -2,7 +2,7 @@
 
 個人齒顎矯正紀錄網頁 APP。手機優先，以按鈕與選單為主的隨手紀錄。
 
-- 網址：https://emmatsai-m.github.io/ortho-tracker/
+
 - 技術：Vite + React + TypeScript、Tailwind CSS、Firebase（Authentication、Firestore）、GitHub Pages
 - 金額一律為新臺幣整數；純日期以 `YYYY-MM-DD` 字串儲存
 
